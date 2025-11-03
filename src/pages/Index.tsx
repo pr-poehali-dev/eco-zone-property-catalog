@@ -117,55 +117,57 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-secondary to-background">
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-background">
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+        <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Icon name="Trees" className="text-primary" size={28} />
-              <h1 className="text-2xl font-bold text-primary">EcoEstate</h1>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Icon name="Leaf" className="text-primary" size={22} />
+              </div>
+              <h1 className="text-2xl font-semibold tracking-tight text-primary">EcoEstate</h1>
             </div>
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-8">
               <button 
                 onClick={() => setActiveTab('home')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground'}`}
+                className={`text-sm font-medium transition-all duration-200 ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Главная
               </button>
               <button 
                 onClick={() => setActiveTab('catalog')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeTab === 'catalog' ? 'text-primary' : 'text-muted-foreground'}`}
+                className={`text-sm font-medium transition-all duration-200 ${activeTab === 'catalog' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Каталог
               </button>
               <button 
                 onClick={() => setActiveTab('map')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeTab === 'map' ? 'text-primary' : 'text-muted-foreground'}`}
+                className={`text-sm font-medium transition-all duration-200 ${activeTab === 'map' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Карта
               </button>
               <button 
                 onClick={() => setActiveTab('about')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeTab === 'about' ? 'text-primary' : 'text-muted-foreground'}`}
+                className={`text-sm font-medium transition-all duration-200 ${activeTab === 'about' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 О проекте
               </button>
               <button 
                 onClick={() => setActiveTab('contact')}
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeTab === 'contact' ? 'text-primary' : 'text-muted-foreground'}`}
+                className={`text-sm font-medium transition-all duration-200 ${activeTab === 'contact' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Контакты
               </button>
             </nav>
             <Button 
-              variant="outline" 
+              variant="ghost" 
               size="sm"
               onClick={() => setActiveTab('favorites')}
-              className="relative"
+              className="relative hover:bg-primary/5"
             >
-              <Icon name="Heart" size={18} className={favorites.length > 0 ? 'fill-primary text-primary' : ''} />
+              <Icon name="Heart" size={20} className={favorites.length > 0 ? 'fill-primary text-primary' : ''} />
               {favorites.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
                   {favorites.length}
                 </span>
               )}
@@ -174,22 +176,23 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-6 py-12">
         {activeTab === 'home' && (
-          <div className="space-y-16 animate-fade-in">
-            <section className="relative rounded-3xl overflow-hidden h-[500px] flex items-center justify-center">
+          <div className="space-y-24 animate-fade-in">
+            <section className="relative rounded-[2rem] overflow-hidden h-[600px] flex items-center justify-center shadow-2xl shadow-primary/10">
               <img 
                 src="https://cdn.poehali.dev/projects/ec071cf0-6793-4868-a4da-f4c0ceffb030/files/251703a2-cfdd-48eb-a535-c0589ebb40f7.jpg"
                 alt="Эко-поселок"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-              <div className="relative z-10 text-center text-white max-w-3xl px-4">
-                <h2 className="text-5xl md:text-6xl font-bold mb-4">Жизнь в гармонии с природой</h2>
-                <p className="text-xl md:text-2xl mb-8 text-white/90">Современная недвижимость в экологически чистой зоне</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="relative z-10 text-center text-white max-w-4xl px-6">
+                <p className="text-sm uppercase tracking-[0.3em] mb-6 text-white/80 font-light">Эксклюзивная недвижимость</p>
+                <h2 className="text-5xl md:text-7xl font-semibold mb-6 leading-tight">Жизнь в гармонии<br/>с природой</h2>
+                <p className="text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto font-light">Современная недвижимость в экологически чистой зоне с развитой инфраструктурой</p>
                 <Button 
                   size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="bg-white text-primary hover:bg-white/90 shadow-xl h-14 px-8 text-base font-medium rounded-full transition-all hover:shadow-2xl hover:scale-105"
                   onClick={() => setActiveTab('catalog')}
                 >
                   Смотреть объекты
@@ -199,65 +202,74 @@ const Index = () => {
             </section>
 
             <section>
-              <div className="text-center mb-10">
-                <h3 className="text-3xl font-bold mb-3">Избранные объекты</h3>
-                <p className="text-muted-foreground">Лучшие предложения этого месяца</p>
+              <div className="text-center mb-16">
+                <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">Лучшие предложения</p>
+                <h3 className="text-4xl md:text-5xl font-semibold mb-4">Избранные объекты</h3>
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Тщательно отобранные варианты для вашего комфорта</p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {properties.slice(0, 3).map((property) => (
-                  <Card key={property.id} className="overflow-hidden group hover:shadow-xl transition-all duration-300 animate-scale-in">
-                    <div className="relative h-48 overflow-hidden">
+                  <Card key={property.id} className="overflow-hidden group hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border-0 bg-card/50 backdrop-blur animate-scale-in">
+                    <div className="relative h-64 overflow-hidden">
                       <img 
                         src={property.image} 
                         alt={property.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="absolute top-3 right-3 bg-white/90 hover:bg-white"
+                        className="absolute top-4 right-4 bg-white/95 hover:bg-white backdrop-blur-sm shadow-lg h-10 w-10 rounded-full p-0 transition-all hover:scale-110"
                         onClick={() => toggleFavorite(property.id)}
                       >
                         <Icon 
                           name="Heart" 
                           size={18}
-                          className={favorites.includes(property.id) ? 'fill-primary text-primary' : ''}
+                          className={favorites.includes(property.id) ? 'fill-primary text-primary' : 'text-muted-foreground'}
                         />
                       </Button>
-                      <Badge className="absolute bottom-3 left-3 bg-accent text-accent-foreground">
+                      <Badge className="absolute bottom-4 left-4 bg-white/95 text-foreground backdrop-blur-sm border-0 px-3 py-1 font-medium">
                         {property.type}
                       </Badge>
                     </div>
-                    <CardContent className="p-5">
-                      <h4 className="font-semibold text-lg mb-2">{property.title}</h4>
-                      <p className="text-sm text-muted-foreground mb-4">{property.description}</p>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <div className="flex items-center gap-1">
+                    <CardContent className="p-6">
+                      <h4 className="font-semibold text-xl mb-3 group-hover:text-primary transition-colors">{property.title}</h4>
+                      <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{property.description}</p>
+                      <div className="flex items-center gap-6 text-sm text-muted-foreground mb-5">
+                        <div className="flex items-center gap-2">
                           <Icon name="Maximize2" size={16} />
                           <span>{property.area} м²</span>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-2">
                           <Icon name="Home" size={16} />
                           <span>{property.rooms} комн.</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xl font-bold text-primary">{formatPrice(property.price)}</span>
-                        <Button size="sm" onClick={() => {
-                          setSelectedProperty(property);
-                          setActiveTab('map');
-                        }}>
+                      <div className="flex items-center justify-between pt-5 border-t border-border/50">
+                        <span className="text-2xl font-semibold text-primary">{formatPrice(property.price)}</span>
+                        <Button 
+                          size="sm" 
+                          variant="ghost"
+                          className="text-primary hover:text-primary hover:bg-primary/5"
+                          onClick={() => {
+                            setSelectedProperty(property);
+                            setActiveTab('map');
+                          }}
+                        >
                           Подробнее
+                          <Icon name="ArrowRight" size={16} className="ml-1" />
                         </Button>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-              <div className="text-center mt-8">
+              <div className="text-center mt-12">
                 <Button 
                   variant="outline" 
                   size="lg"
+                  className="rounded-full px-8 h-12 border-primary/20 hover:bg-primary/5 hover:border-primary/40 transition-all"
                   onClick={() => setActiveTab('catalog')}
                 >
                   Все объекты
@@ -266,28 +278,28 @@ const Index = () => {
               </div>
             </section>
 
-            <section className="bg-secondary/50 rounded-3xl p-8 md:p-12">
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                    <Icon name="Trees" className="text-primary" size={28} />
+            <section className="bg-gradient-to-br from-secondary/30 to-primary/5 rounded-[2rem] p-12 md:p-16 border border-border/30">
+              <div className="grid md:grid-cols-3 gap-12">
+                <div className="text-center group">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Icon name="Trees" className="text-primary" size={32} />
                   </div>
-                  <h4 className="text-xl font-semibold mb-2">Эко-зона</h4>
-                  <p className="text-muted-foreground">Чистый воздух и природа вокруг</p>
+                  <h4 className="text-2xl font-semibold mb-3">Эко-зона</h4>
+                  <p className="text-muted-foreground text-base leading-relaxed">Чистый воздух и природа вокруг</p>
                 </div>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                    <Icon name="Home" className="text-primary" size={28} />
+                <div className="text-center group">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Icon name="Home" className="text-primary" size={32} />
                   </div>
-                  <h4 className="text-xl font-semibold mb-2">Комфорт</h4>
-                  <p className="text-muted-foreground">Современная инфраструктура</p>
+                  <h4 className="text-2xl font-semibold mb-3">Комфорт</h4>
+                  <p className="text-muted-foreground text-base leading-relaxed">Современная инфраструктура</p>
                 </div>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                    <Icon name="Shield" className="text-primary" size={28} />
+                <div className="text-center group">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Icon name="Shield" className="text-primary" size={32} />
                   </div>
-                  <h4 className="text-xl font-semibold mb-2">Безопасность</h4>
-                  <p className="text-muted-foreground">Охраняемая территория 24/7</p>
+                  <h4 className="text-2xl font-semibold mb-3">Безопасность</h4>
+                  <p className="text-muted-foreground text-base leading-relaxed">Охраняемая территория 24/7</p>
                 </div>
               </div>
             </section>
